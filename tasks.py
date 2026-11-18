@@ -31,8 +31,10 @@ text = "The quick brown fox jumps over the lazy dog!"
 # Write a list comprehension to tokenize the text and remove punctuation
 punctuation = '''!"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~'''
 
-tokens = [word.strip(punctuation).lower() for word in string.split()
+tokens = [word.strip(punctuation).lower() for word in text.split()
           if word.strip(punctuation) != ""]
+
+
 
 # Expected output: ['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog']
 print(tokens)
@@ -79,12 +81,16 @@ def tokenize(string: str) -> list:
 
 # Your code here:
 # -----------------------------------------------
-word_frequencies = _ # Your code here
+word_frequencies = {word: tokens.count(word) for word in set(tokens)}
+
 
 # Expected output example: {'the': 2, 'quick': 1, ...}
 print(word_frequencies)
 
 # Modify the comprehension to include only words that appear more than once.
+repeated_words = {word: tokens.count(word) for word in set(tokens) if tokens.count(word) > 1}
+
+print(repeated_words)
 # -----------------------------------------------
 
 
