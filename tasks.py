@@ -47,8 +47,9 @@ print(tokens)
 # Your code here:
 # -----------------------------------------------
 def tokenize(string: str) -> list:
-    pass # Your code
-
+    punctuation = '''!"/',-.:;?`'''
+    tokens = [word.strip(punctuation).lower() for word in string.split()]
+    return sorted(set(tokens))
 
 # -----------------------------------------------
 
